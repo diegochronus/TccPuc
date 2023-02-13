@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@model UsuarioModel
+
+<div class="row align-items-center h-100">
+    <div class="col-md-3 card mx-md-5 my-auto text-white" id="cardLogin">
+           <form method="post" class="card-body" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <p>
+                <h4 class="text-center">Bem vindo</h4>
+            </p>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <input asp-for="Login" class="form-control form-control-sm" placeholder="Usuário" />
+                    <span asp-validation-for="Login" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <input asp-for="Senha" class="form-control form-control-sm" placeholder="Senha" />
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12 text-center">
+                    <input type="submit" value="Entrar" class="btn btn-sm btn-primary" />
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+</div>

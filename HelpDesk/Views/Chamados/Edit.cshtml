@@ -1,0 +1,89 @@
+﻿@model HelpDesk.Models.Chamado
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Chamado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdChamado" />
+            <div class="form-group">
+                <label asp-for="Assunto" class="control-label"></label>
+                <input asp-for="Assunto" class="form-control" />
+                <span asp-validation-for="Assunto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataInicio" class="control-label"></label>
+                <input asp-for="DataInicio" class="form-control" />
+                <span asp-validation-for="DataInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCliente" class="control-label"></label>
+                <input asp-for="IdCliente" class="form-control" />
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NmOperador" class="control-label"></label>
+                <input asp-for="NmOperador" class="form-control" />
+                <span asp-validation-for="NmOperador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuarioResponsavel" class="control-label"></label>
+                <input asp-for="IdUsuarioResponsavel" class="form-control" />
+                <span asp-validation-for="IdUsuarioResponsavel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoChamado" class="control-label"></label>
+                <input asp-for="EstadoChamado" class="form-control" />
+                <span asp-validation-for="EstadoChamado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CentroCusto" class="control-label"></label>
+                <input asp-for="CentroCusto" class="form-control" />
+                <span asp-validation-for="CentroCusto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoChamado" class="control-label"></label>
+                <input asp-for="TipoChamado" class="form-control" />
+                <span asp-validation-for="TipoChamado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoriaServico" class="control-label"></label>
+                <input asp-for="CategoriaServico" class="form-control" />
+                <span asp-validation-for="CategoriaServico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubCategoriaServico" class="control-label"></label>
+                <input asp-for="SubCategoriaServico" class="form-control" />
+                <span asp-validation-for="SubCategoriaServico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NmNivelOperacional" class="control-label"></label>
+                <input asp-for="NmNivelOperacional" class="form-control" />
+                <span asp-validation-for="NmNivelOperacional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

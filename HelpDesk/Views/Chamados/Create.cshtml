@@ -1,0 +1,185 @@
+﻿@model HelpDesk.Models.Chamado
+
+@{
+    ViewData["Title"] = "Create";
+}
+    <div class="alert alert-info alert-dismissible fade show text-hide" role="alert">
+        <asp:Label ID="Label1" runat="server" Text="" Visible="false"></asp:Label>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <h4>Adicionar Chamado</h4>
+    <br />
+
+    <div class="row">
+
+        <!-- Formulario -->
+        <div class="col-8" id="cadastro-form">
+
+            <!-- Assunto e Centro de custo-->
+            <div class="form-row">
+
+                <!-- Assunto -->
+                <div class="form-group col-md-8">
+                     <label asp-for="Assunto" class="control-label"></label>
+                        <input asp-for="Assunto" class="form-control" />
+                        <span asp-validation-for="Assunto" class="text-danger"></span>
+
+                </div>
+
+                <!-- Centro de custo-->
+                <div class="form-group col-md-4">
+                    <label asp-for="CentroCusto" class="control-label">Centro de Custo</label>
+                    <input asp-for="CentroCusto" class="form-control" />
+                    <span asp-validation-for="CentroCusto" class="text-danger"></span>
+                   
+                </div>
+
+            </div>
+
+            <br />
+            <!-- Tipo e categoria -->
+            <fieldset>
+                <legend>Categorização</legend>
+                <div class="form-row">
+                    <!-- tipo -->
+                    <div class="form-group col-md-4">
+                        <label asp-for="TipoChamado" class="control-label">Tipo </label>
+                        <input asp-for="TipoChamado" class="form-control" />
+                        <span asp-validation-for="TipoChamado" class="text-danger"></span>
+                    </div>
+
+                    <!-- categoria -->
+                    <div class="form-group col-md-4">
+                        <label asp-for="CategoriaServico" class="control-label">Categoria</label>
+                        <input asp-for="CategoriaServico" class="form-control" />
+                        <span asp-validation-for="CategoriaServico" class="text-danger"></span>
+                    </div>
+
+                    <!-- sub categoria -->
+                    <div class="form-group col-md-4">
+                        <label asp-for="SubCategoriaServico" class="control-label">Sub-Categoria</label>
+                        <input asp-for="SubCategoriaServico" class="form-control" />
+                        <span asp-validation-for="SubCategoriaServico" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <br />
+            <!-- Tipo e categoria -->
+            <fieldset>
+                <legend>Nível Chamado</legend>
+                <!-- Estados e nivel do chamado -->
+                <div class="form-row">
+
+                   
+
+                    <!-- Estado -->
+                    <div class="form-group col-md-4">
+                        <label asp-for="EstadoChamado" class="control-label"> Estado Chamado</label>
+                        <input asp-for="EstadoChamado" class="form-control" />
+                        <span asp-validation-for="EstadoChamado" class="text-danger"></span>
+                    </div>
+
+                    <!-- Nivel técnico -->
+                    <div class="form-group col-md-4">
+                        <label asp-for="NmNivelOperacional" class="control-label">Nivel Operacional</label>
+                        <input asp-for="NmNivelOperacional" class="form-control" />
+                        <span asp-validation-for="NmNivelOperacional" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <br />
+            <!-- Descrição do Chamado -->
+            <fieldset>
+                <legend>Descrição chamado</legend>
+                <asp:TextBox ID="input_descricao" ClientIDMode="Static" runat="server" CssClass="form-control" Rows="10" TextMode="multiline" Columns="10" />
+            </fieldset>
+
+            <br />
+            <!-- Botão de Anexo -->
+            <div class="custom-file">
+                <label for="exampleFormControlFile1" class="custom-file-label">* Anexo</label>
+                <input type="file" class="custom-file-input" id="exampleFormControlFile1" />
+            </div>
+
+            <br />
+            <br />
+            <!--Botão Adicionar -->
+            <div class="text-right">
+                <button type="reset" class="btn btn-light">CANCELAR</button>
+                <asp:Button type="submit" ID="Button1" runat="server" OnClick="ButtonCadastroChamado" class="btn btn-primary" Text="Adicionar" />
+            </div>
+
+        </div>
+
+        <!-- Script -->
+        @* <div class="col-4" id="table-script">
+            <div class="shadow card">
+                <div class="card-header">
+                    <h5>Scripts</h5>
+                </div>
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <asp:GridView ID="GridViewScript"
+                                      runat="server"
+                                      AutoGenerateColumns="false"
+                                      DataKeyNames="idScriptChamado"
+                                      EmptyDataText="Sem script"
+                                      CssClass="table grid"
+                                      GridLines="None" AllowPaging="false" PageSize="2">
+                            <Columns>
+                                <asp:BoundField DataField="idScriptChamado" HeaderText="#" InsertVisible="False" ReadOnly="True" SortExpression="idScriptChamado" />
+                                <asp:BoundField DataField="descScript" HeaderText="Descrição" SortExpression="descScript" ItemStyle-CssClass="text-truncate" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <button type="button" data-toggle="modal" data-target="#modalExemplo"
+                                                onclick="exibirScript('<%# Eval(" descScript")%>
+                                            ')" class="btn btn-link btn-sm">
+                                            Exibir
+                                        </button>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+
+                    </div>
+
+                </div>
+        </div>*@
+    </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Descrição script</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span id="modal_label"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="adicionarScript()">Usar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

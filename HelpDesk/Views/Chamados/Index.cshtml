@@ -1,0 +1,100 @@
+﻿@model IEnumerable<HelpDesk.Models.Chamado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Novo Chamado</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Assunto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NmOperador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUsuarioResponsavel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoChamado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CentroCusto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoChamado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaServico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategoriaServico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NmNivelOperacional)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assunto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NmOperador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuarioResponsavel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoChamado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CentroCusto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoChamado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaServico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategoriaServico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NmNivelOperacional)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdChamado">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdChamado">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdChamado">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

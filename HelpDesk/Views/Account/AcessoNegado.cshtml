@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Acesso Negado";
+}
+
+<div class="row align-items-center h-100">
+    <div class="col-4 mx-auto text-center">
+        <i class="bi bi-emoji-frown" style="font-size:5em"></i>
+        <h4>Opa, infelizmente você não tem liberação suficiente.</h4>
+        <p>
+            <button type="button" class="btn btn-sm btn-light" id="back">Voltar</button>
+            <a asp-action="logoff" asp-controller="account" class="btn btn-sm btn-dark">Sair</a>
+        </p>
+
+    </div>
+</div>
+
+<script>
+    document.querySelector('#back').onclick = () => {
+        window.history.back();
+    };
+</script>
